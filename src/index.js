@@ -20,7 +20,7 @@ process.argv.forEach(function(val) {
 if (runMaster) {
     // Initialize the master server
     var MasterServer = require('./MasterServer');
-    var master = new MasterServer(8080);
+    var master = new MasterServer(process.env.PORT);
     master.start();
 }
 
@@ -28,7 +28,7 @@ if (runGame) {
     // Initialize the game server
     var GameServer = require('./GameServer');
     var game = new GameServer(false);
-    var game2 = new GameServer(true,81);
+    var game2 = new GameServer(true,process.env.PORT);
     game.start();
     game2.start();
 }
